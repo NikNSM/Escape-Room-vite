@@ -5,7 +5,7 @@ import FilterLevel from '../filter-level/filter-level';
 import FilterType from '../filter-type/filter-type';
 
 export default function MainContent(): JSX.Element {
-  const questsList = useAppSelector((state) => state.questsList.quests);
+  const questsList = useAppSelector((state) => state.quest.questList);
   const { filterActive, handlerLevelChange, handlerTypeChange, getFilterQuests } = useFilter();
   return (
     <div className="container">

@@ -1,5 +1,5 @@
 import {
-  FILTER_TYPE_NAME,
+  TYPE_QUEST_NAME,
   filterLevelArrayKey,
   Level,
   Type,
@@ -12,7 +12,7 @@ export function useFilter() {
     type: Type;
     level: Level;
   }>({
-    type: FILTER_TYPE_NAME.all,
+    type: TYPE_QUEST_NAME.all,
     level: filterLevelArrayKey[0],
   });
 
@@ -32,7 +32,7 @@ export function useFilter() {
           : filterActive.level === quest.level
       )
       .filter((quest) =>
-        filterActive.type === FILTER_TYPE_NAME.all
+        filterActive.type === TYPE_QUEST_NAME.all
           ? quest
           : filterActive.type === quest.type
       );

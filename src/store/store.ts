@@ -1,12 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { createApi } from '../api/api';
-import { reducerQuestsList } from './quests-list-slice/quests-list-slice';
+import { reducerQuest } from './quest-slice/quest-slice';
 
 const api = createApi();
 
 export const store = configureStore({
   reducer: {
-    questsList: reducerQuestsList,
+    quest: reducerQuest,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

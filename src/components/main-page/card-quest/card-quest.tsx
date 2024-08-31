@@ -20,7 +20,7 @@ export default function CardQuest({ quest }: TypeCardQuestProps): JSX.Element {
           <li className="tags__item">
             <svg width="11" height="14" aria-hidden="true">
               <use xlinkHref="#icon-person"></use>
-            </svg>{`${quest.peopleMinMax[0]}&ndash;${quest.peopleMinMax[1]}&nbsp;чел`}
+            </svg>{quest.peopleMinMax[0]}&ndash;{quest.peopleMinMax[1]}&nbsp;чел
           </li>
           <li className="tags__item">
             <svg width="14" height="14" aria-hidden="true">

@@ -1,4 +1,4 @@
-import { Level, FILTER_LEVEL_NAME } from '../../../../const';
+import { Level, LEVEL_QUETS_NAME } from '../../../../const';
 
 type TypeElementFilterLevelProps = {
   filter: Level;
@@ -13,7 +13,7 @@ export default function ElementFilterLevel({ filter, activeFilter, handlerLevelC
         onChange={() => handlerLevelChange(filter)}
         checked={activeFilter === filter}
       />
-      <label className="filter__label" htmlFor={filter}><span className="filter__label-text">{FILTER_LEVEL_NAME[filter]}</span>
+      <label className="filter__label" htmlFor={filter}><span className="filter__label-text">{LEVEL_QUETS_NAME[filter]}</span>
       </label>
     </li>
   );
