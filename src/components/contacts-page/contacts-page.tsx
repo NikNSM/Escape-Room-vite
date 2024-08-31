@@ -1,3 +1,5 @@
+import Map from './map/map';
+
 export default function ContactsPage(): JSX.Element {
   return (
     <main className="page-content decorated-page">
@@ -40,11 +42,7 @@ export default function ContactsPage(): JSX.Element {
               </dd>
             </div>
           </dl>
-          <div className="contacts__map">
-            <div className="map">
-              <div className="map__container"></div>
-            </div>
-          </div>
+          <Map />
         </div>
       </div>
     </main>

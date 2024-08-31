@@ -42,3 +42,8 @@ export type Type = (typeof filterTypeValues)[number];
 
 export type Level = keyof typeof FILTER_LEVEL_NAME;
 export const filterLevelArrayKey: Level[] = ['any', 'easy', 'medium', 'hard'];
+
+export const COORDINATE_CONTACTS = {
+  lat: 59.968322,
+  lng: 30.317359,
+};
