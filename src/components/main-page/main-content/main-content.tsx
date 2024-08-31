@@ -3,6 +3,7 @@ import { useAppSelector } from '../../../utils';
 import CardQuest from '../card-quest/card-quest';
 import FilterLevel from '../filter-level/filter-level';
 import FilterType from '../filter-type/filter-type';
+import EmptyFilterMainPage from '../empty-filter-main-page/empty-filter-main-page';
 
 export default function MainContent(): JSX.Element {
   const questsList = useAppSelector((state) => state.quest.questList);
@@ -21,12 +22,14 @@ export default function MainContent(): JSX.Element {
         </form>
       </div>
       <h2 className="title visually-hidden">Выберите квест</h2>
-      <div className="cards-grid">
-        {
-          questsList.length !== 0 ?
-            getFilterQuests(questsList).map((quest) => < CardQuest quest={quest} key={`key-${quest.id}`} />) : ''
-        }
-      </div>
+
+      {
+        getFilterQuests(questsList).length !== 0 ?
+          <div className="cards-grid">
+            {getFilterQuests(questsList).map((quest) => < CardQuest quest={quest} key={`key-${quest.id}`} />)}
+          </div> : <EmptyFilterMainPage />
+      }
+
     </div>
   );
 }
