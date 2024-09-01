@@ -3,11 +3,13 @@ import { createApi } from '../api/api';
 import { reducerQuest } from './quest-slice/quest-slice';
 import { reducerUser } from './user-slice/user-slice';
 import { redirect } from './middleware/redirect-middleware';
+import { reducerBooking } from './booking-slice/booking-slice';
 
 const api = createApi();
 export const rootReducer = combineReducers({
   quest: reducerQuest,
   user: reducerUser,
+  booking: reducerBooking,
 });
 
 export const store = configureStore({

@@ -27,7 +27,7 @@ export type QuestPage = {
 
 export type Location = {
   address: string;
-  coord: [number, number];
+  coords: [number, number];
 };
 
 export type Slot = {
@@ -44,6 +44,7 @@ export type InformationQuestBooking = {
 };
 
 export type InformationPostBookingUser = {
+  id: string;
   date: 'today' | 'tomorrow';
   time: string;
   contactPerson: string;

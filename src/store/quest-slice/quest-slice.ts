@@ -19,11 +19,7 @@ const initialState: InitialStateQuest = {
 const questSlice = createSlice({
   name: 'quest',
   initialState,
-  reducers: {
-    clearQuest(state) {
-      state.quest = null;
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(getQuestsList.fulfilled, (state, action) => {
@@ -48,4 +44,3 @@ const questSlice = createSlice({
 });
 
 export const reducerQuest = questSlice.reducer;
-export const { clearQuest } = questSlice.actions;
