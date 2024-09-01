@@ -2,6 +2,7 @@ export enum RouteAdresses {
   MAIN_PAGE = '/',
   QUEST = '/quest',
   LOGIN = '/login',
+  LOGOUT = '/logout',
   MY_QUESTS = '/my-quests',
   CONTACTS = '/contacts',
   BOOKING = '/booking',

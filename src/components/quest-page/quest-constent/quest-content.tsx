@@ -1,8 +1,9 @@
 import { useAppSelector } from '../../../utils';
-import { LEVEL_QUETS_NAME } from '../../../const';
+import { LEVEL_QUETS_NAME, RouteAdresses } from '../../../const';
 import { getTypeQuest } from '../../../utils';
 import Image from './image/image';
 import EmptyPageQuest from '../empty-page-quest/empty-page-quest';
+import { Link } from 'react-router-dom';
 
 export default function QuestContent(): JSX.Element {
   const quest = useAppSelector((state) => state.quest.quest);
@@ -28,7 +29,7 @@ export default function QuestContent(): JSX.Element {
               </li>
             </ul>
             <p className="quest-page__description">{quest.description}</p>
-            <a className="btn btn--accent btn--cta quest-page__btn" href="booking.html">Забронировать</a>
+            <Link className="btn btn--accent btn--cta quest-page__btn" to={`${RouteAdresses.QUEST}/${quest.id}/${RouteAdresses.BOOKING}`}>Забронировать</ Link>
           </div>
         </div>
       </> : <EmptyPageQuest />
