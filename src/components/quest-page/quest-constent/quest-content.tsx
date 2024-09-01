@@ -29,7 +29,7 @@ export default function QuestContent(): JSX.Element {
               </li>
             </ul>
             <p className="quest-page__description">{quest.description}</p>
-            <Link className="btn btn--accent btn--cta quest-page__btn" to={`${RouteAdresses.QUEST}/${quest.id}/${RouteAdresses.BOOKING}`}>Забронировать</ Link>
+            <Link className="btn btn--accent btn--cta quest-page__btn" to={`${RouteAdresses.QUEST}/${quest.id}${RouteAdresses.BOOKING}`}>Забронировать</ Link>
           </div>
         </div>
       </> : <EmptyPageQuest />

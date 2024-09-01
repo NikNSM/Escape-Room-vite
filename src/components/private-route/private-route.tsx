@@ -1,4 +1,4 @@
-import { Navigate } from 'react-router-dom';
+import { Navigate, useLocation } from 'react-router-dom';
 import { AutorizationStatus, RouteAdresses } from '../../const';
 
 type PrivateRouteProps = {
@@ -7,8 +7,9 @@ type PrivateRouteProps = {
 }
 
 export default function PrivateRoute({ autorization, children }: PrivateRouteProps): JSX.Element {
+  const { pathname } = useLocation();
   return (
     autorization === AutorizationStatus.AUTORIZATION ?
-      children : <Navigate to={RouteAdresses.LOGIN} />
+      children : <Navigate to={RouteAdresses.LOGIN} state={{ pathName: pathname }} />
   );
 }

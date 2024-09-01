@@ -3,6 +3,8 @@ import { UserLogin, UserPostLogin } from '../../type/type';
 import { AxiosInstance } from 'axios';
 import { RouteAdresses } from '../../const';
 import { dropToken, saveToken } from '../../api/token';
+import { TypeAppDispatch } from '../../type/type-redux';
+import { redirectToRoute } from '../middleware/action/action';
 
 export const checkStatusAutorization = createAsyncThunk<
   string,
@@ -21,10 +23,13 @@ export const autorizationUser = createAsyncThunk<
   UserPostLogin,
   {
     extra: AxiosInstance;
+    dispatch: TypeAppDispatch;
   }
->('user/autorizationUser', async (arg, { extra: api }) => {
-  const { data } = await api.post<UserLogin>(RouteAdresses.LOGIN, arg);
+>('user/autorizationUser', async (arg, { extra: api, dispatch }) => {
+  const { pathName, ...user } = arg;
+  const { data } = await api.post<UserLogin>(RouteAdresses.LOGIN, user);
   saveToken(data.token);
+  dispatch(redirectToRoute(pathName));
   return data.email;
 });
 

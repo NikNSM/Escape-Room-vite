@@ -1,10 +1,9 @@
-import { Link, NavLink, useLocation } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { RouteAdresses } from '../../../const';
 import { AutorizationStatus } from '../../../const';
 import LogoMainPage from './logo/logo-main-page';
 import Logo from './logo/logo';
-import { useAppDispatch } from '../../../utils';
-import { logOutUser } from '../../../store/user-slice/api-action';
+import ButtonLoginAndLogout from './button-login-and-logout/button-login-and-logout';
 
 type TypeHeaderProps = {
   autorization: AutorizationStatus;
@@ -13,10 +12,7 @@ type TypeHeaderProps = {
 
 export default function Header({ autorization }: TypeHeaderProps): JSX.Element {
   const { pathname } = useLocation();
-  const dispatch = useAppDispatch();
-  const onClickLogOut = () => {
-    dispatch(logOutUser());
-  };
+
 
   return (
     <header className="header">
@@ -40,11 +36,8 @@ export default function Header({ autorization }: TypeHeaderProps): JSX.Element {
           </ul>
         </nav>
         <div className="header__side-nav">
-          {
-            autorization === AutorizationStatus.AUTORIZATION ?
-              <a className="btn btn--accent header__side-item" href="#" onClick={onClickLogOut}>Выйти</a> :
-              <Link className="btn header__side-item header__login-btn" to={RouteAdresses.LOGIN} state={pathname}>Вход</Link>
-          }
+          {pathname === RouteAdresses.LOGIN ? '' :
+            <ButtonLoginAndLogout autorization={autorization} pathName={pathname} />}
           <a className="link header__side-item header__phone-link" href="tel:88003335599">8 (000) 111-11-11</a>
         </div>
       </div>

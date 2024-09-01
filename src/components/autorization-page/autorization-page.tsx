@@ -3,14 +3,22 @@ import BackgroundImage from './background-image/background-image';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { autorizationUser } from '../../store/user-slice/api-action';
 import { useAppDispatch } from '../../utils';
+import { useLocation } from 'react-router-dom';
+import { UserPostLogin } from '../../type/type';
 
 type IFormInput = {
   email: string;
   password: string;
   agreement: boolean;
 }
-
+type CustomizedState = {
+  pathName: string;
+}
 export default function AutorizationPage(): JSX.Element {
+  const location = useLocation();
+  const state = location.state as CustomizedState;
+  const { pathName } = state;
+
   const regEmail = /^\w+([.-]?\w+)@\w+([.-]?\w+).\w{2,3}$/i;
   const regPasseword = /[a-z]+.*\d+|\d+.*[a-z]+/i;
   const dispatch = useAppDispatch();
@@ -24,9 +32,10 @@ export default function AutorizationPage(): JSX.Element {
   } = useForm<IFormInput>({ mode: 'onChange' });
 
   const onSubmit: SubmitHandler<IFormInput> = (data) => {
-    const user = {
+    const user: UserPostLogin = {
       email: data.email,
       password: data.password,
+      pathName: pathName,
     };
 
     dispatch(autorizationUser(user));

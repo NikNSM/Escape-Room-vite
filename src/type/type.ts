@@ -75,4 +75,5 @@ export type UserLogin = {
 export type UserPostLogin = {
   email: string;
   password: string;
+  pathName: string;
 };
