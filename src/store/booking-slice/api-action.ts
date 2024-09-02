@@ -38,7 +38,7 @@ export const bookAQuest = createAsyncThunk<
 >('booking/bookAQues', async (data, { dispatch, extra: api }) => {
   try {
     const { id, ...dataBooking } = data;
-    await api.post(`${ApiRoute.QUEST}/${id}/${ApiRoute.BOOKING}`, dataBooking);
+    await api.post(`${ApiRoute.QUEST}/${id}${ApiRoute.BOOKING}`, dataBooking);
     dispatch(clearMessage());
   } catch {
     dispatch(clearMessage());

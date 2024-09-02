@@ -45,7 +45,7 @@ export type InformationQuestBooking = {
 
 export type InformationPostBookingUser = {
   id: string;
-  date: 'today' | 'tomorrow';
+  date: string;
   time: string;
   contactPerson: string;
   phone: string;
